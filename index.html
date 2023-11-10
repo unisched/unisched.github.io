@@ -96,15 +96,17 @@
                 <a class="button is-ghost is-normal" href="https://t.me/unisched" target="_blank">
                     <span class="icon is-small"><img src="icons/telegram-logo.svg" /></span>
                     <span>Слідкуй за UniSched в Telegram</span>
-                    <span class="tag is-info ml-1" style="border-radius: 15px;">new</span>
                 </a>
             </div>
             <!-- /Telegram channel link -->
         </div>
 
         <!-- Screenshot -->
-        <div class="container is-max-desktop">
+        <div class="container is-max-desktop is-flex is-justify-content-center">
             <figure class="unisched-screenshot image has-text-centered">
+                <!-- Changelog button -->
+                <div class="updates-widget"></div>
+                <!-- /Changelog button -->
                 <img src="img/screenshot.png">
             </figure>
         </div>
@@ -138,5 +140,16 @@
 
     <!-- Help Ukraine win the war -->
     <script id="help-ukraine-win" async="true" src="https://helpukrainewinwidget.org/cdn/widget.js?type=one&position=bottom-right&layout=main"></script>
+    <!-- /Help Ukraine win the war -->
+
+    <!-- Head Way changelog widget -->
+    <script>
+        var HW_config = {
+            selector: ".updates-widget",
+            account: "7OqVXy"
+        }
+    </script>
+    <script async src="https://cdn.headwayapp.co/widget.js"></script>
+    <!-- /Head Way changelog widget -->
 </body>
 </html>

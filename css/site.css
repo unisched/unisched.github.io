@@ -66,10 +66,25 @@ body {
     }
 }
 
+.unisched-screenshot {
+    max-width: 350px;
+}
 .unisched-screenshot img {
     display: inline;
-    max-width: 350px;
     cursor: grab;
+}
+
+.unisched-screenshot .updates-widget {
+    position: absolute;
+    top: 14px;
+    left: 60px;
+}
+
+@media (max-width: 399px) {
+    .unisched-screenshot .updates-widget {
+        top: 11px;
+        left: 55px;
+    }
 }
 
 .button {
