@@ -37,11 +37,15 @@
             "@context": "https://schema.org",
             "@type": ["SoftwareApplication", "MobileApplication", "WebApplication"],
             "name": "UniSched",
+            "operatingSystem": "ANDROID",
             "applicationCategory": "EducationalApplication",
             "offers": {
                 "@type": "Offer",
                 "price": "0"
-            }
+            },
+            "downloadUrl": "https://play.google.com/store/apps/details?id=download.unisched.app",
+            "releaseNotes": "https://headwayapp.co/unisched-changelog",
+            "license": "https://help.unisched.download/license.html"
         }
     </script>
     <!-- /Google Search -->
@@ -75,8 +79,22 @@
 
             <!-- App download buttons -->
             <div class="unisched-download-buttons is-flex is-justify-content-center is-align-items-center">
+                <!-- Android version -->
+                <a class="ml-2" target="_blank" href="https://play.google.com/store/apps/details?id=download.unisched.app">
+                    <!--div class="box p-3 is-flex is-align-content-center m-0 coming-soon"-->
+                    <div class="box p-3 is-flex is-align-content-center m-0">
+                        <img src="img/google_play.png" class="is-align-self-center mr-2" />
+                        <div class="is-align-self-center">
+                            <p class="is-size-6">Додаток на</p>
+                            <p class="is-size-6 has-text-weight-bold">Google Play</p>
+                        </div>
+                        <!--img src="img/coming_soon.png" class="coming-soon" /-->
+                    </div>
+                </a>
+                <!-- /Android version -->
+
                 <!-- Web version -->
-                <a class="mr-2" href="https://app.unisched.download/">
+                <a class="ml-2" href="https://app.unisched.download/">
                     <div class="box p-3 is-flex is-align-content-center m-0">
                         <img src="img/web.png" class="is-align-self-center mr-2" />
                         <div class="is-align-self-center">
@@ -86,20 +104,6 @@
                     </div>
                 </a>
                 <!-- /Web version -->
-
-                <!-- Android version -->
-                <a class="ml-2" target="_blank" href="https://headwayapp.co/unisched-changelog/unisched-for-android-278995">
-                    <!--div class="box p-3 is-flex is-align-content-center m-0 coming-soon"-->
-                    <div class="box p-3 is-flex is-align-content-center m-0">
-                        <img src="img/google_play.png" class="is-align-self-center mr-2" />
-                        <div class="is-align-self-center">
-                            <p class="is-size-6">Вже скоро:</p>
-                            <p class="is-size-6 has-text-weight-bold">Google Play</p>
-                        </div>
-                        <!--img src="img/coming_soon.png" class="coming-soon" /-->
-                    </div>
-                </a>
-                <!-- /Android version -->
             </div>
             <!-- /App download buttons -->
 
@@ -151,7 +155,7 @@
     </footer>
 
     <!-- Help Ukraine win the war -->
-    <script id="help-ukraine-win" async="true" src="https://helpukrainewinwidget.org/cdn/widget.js?type=one&position=bottom-right&layout=main"></script>
+    <!--script id="help-ukraine-win" async="true" src="https://helpukrainewinwidget.org/cdn/widget.js?type=one&position=bottom-right&layout=main"></script-->
     <!-- /Help Ukraine win the war -->
 
     <!-- Head Way changelog widget -->
