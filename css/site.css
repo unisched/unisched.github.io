@@ -28,29 +28,14 @@ body {
     height: 35px !important;
 }
 
+h2.title.is-2 {
+    padding: 0 !important;
+    margin-top: -25px !important;
+}
+
 .unisched-download-buttons .box {
-    min-width: 180px;
+    min-width: 170px;
     border-radius: 15px;
-}
-
-.unisched-download-buttons .box.coming-soon {
-    cursor: not-allowed;
-    position: relative;
-}
-
-.unisched-download-buttons .box.coming-soon * {
-    opacity: 0.7;
-}
-
-.unisched-download-buttons .box.coming-soon img.coming-soon {
-    width: 80px;
-    height: auto;
-    position: absolute;
-    top: -13px;
-    left: 50%;
-    right: 50%;
-    margin-left: -40px;
-    opacity: 100%;
 }
 
 .unisched-download-buttons .box p {
@@ -68,12 +53,26 @@ body {
     }
 
     .unisched-download-buttons .box {
-        min-width: 160px;
+        min-width: 150px;
     }
 
     .unisched-download-buttons .box img {
         width: 30px;
         height: 30px;
+    }
+}
+
+@media (max-width: 545px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    .unisched-download-buttons {
+        flex-wrap: wrap;
+    }
+
+    .unisched-download-buttons a {
+        margin: 5px !important;
     }
 }
 
