@@ -1,0 +1,170 @@
+/*
+ ________  ___  ________  ___  __    ________  ________  ___  ________  ________  ___      ___ 
+|\   ____\|\  \|\   __  \|\  \|\  \ |\   __  \|\   ___ \|\  \|\   __  \|\   __  \|\  \    /  /|
+\ \  \___|\ \  \ \  \|\  \ \  \/  /|\ \  \|\  \ \  \_|\ \ \  \ \  \|\  \ \  \|\  \ \  \  /  / /
+ \ \_____  \ \  \ \   _  _\ \   ___  \ \   __  \ \  \ \\ \ \  \ \   _  _\ \  \\\  \ \  \/  / / 
+  \|____|\  \ \  \ \  \\  \\ \  \\ \  \ \  \ \  \ \  \_\\ \ \  \ \  \\  \\ \  \\\  \ \    / /  
+    ____\_\  \ \__\ \__\\ _\\ \__\\ \__\ \__\ \__\ \_______\ \__\ \__\\ _\\ \_______\ \__/ /   
+   |\_________\|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|__|\|__|\|__|\|_______|\|__|/    
+   \|_________|
+*/
+
+/*@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');*/
+
+* {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+:root {
+    --main-bg-color: #fafafa;
+    --secondary-bg-color: #f3f3f3;
+    --main-accent-color: #151F6D;
+}
+
+@media screen and (max-width: 500px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+}
+
+html,
+body {
+    min-height: 100%;
+    background-color: var(--main-bg-color);
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+}
+
+.site-navbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    margin: 0;
+    width: 100%;
+    background-color: var(--main-bg-color);
+}
+
+.site-navbar .site-logo {
+    height: 30px;
+    display: block;
+}
+
+.site-navbar .button {
+    font-weight: bold;
+}
+.site-navbar .button:hover {
+    opacity: 0.9;
+}
+
+.button {
+    border-radius: 15px !important;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    text-decoration: none !important;
+    opacity: 1 !important;
+}
+.button:hover {
+    opacity: 0.9 !important;
+}
+.button.is-white {
+    background-color: transparent !important;
+    color: var(--main-accent-color) !important;
+}
+.button.is-dark {
+    background-color: var(--main-accent-color) !important;
+    color: #ffffff;
+}
+
+a, a:hover, a:active, a:visited {
+    color: var(--main-accent-color);
+}
+a:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+}
+a.no-decoration {
+    text-decoration: none !important;
+    opacity: 1 !important;
+}
+
+section#app-banner {
+    background-image: linear-gradient(0deg, rgba(204, 228, 247, 1) 11.2%, var(--main-bg-color) 100.2%);
+}
+.app-double-screen {
+    max-height: 350px;
+    display: block;
+}
+
+.title {
+    font-family: 'Ubuntu', sans-serif;
+}
+.title.is-1 {
+    font-weight: bold;
+    letter-spacing: -3px;
+}
+.title.is-4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    line-height: 1.4;
+    font-size: 1.6rem;
+}
+@media (max-width: 440px) {
+    .title.is-1 {
+        font-size: 2.5rem;
+    }
+    .title.is-4 {
+        font-size: 1.5rem;
+    }
+}
+
+.unisched-download-buttons .box {
+    min-width: 150px;
+    border-radius: 15px;
+}
+.unisched-download-buttons .box:hover {
+    opacity: 0.9 !important;
+}
+.unisched-download-buttons .box p {
+    font-size: 0.9rem !important;
+    line-height: 1.1;
+    text-align: left;
+}
+.unisched-download-buttons .box img {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 768px) {
+    .unisched-download-buttons .box img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+section#features .column .icon {
+    color: var(--main-accent-color);
+}
+
+section#partner-logos, .footer {
+    background-color: var(--secondary-bg-color);
+}
+
+@media screen and (max-width: 768px) {
+    section#testimonials .column {
+        text-align: center;
+    }
+    section#testimonials .column .is-flex {
+        justify-content: center !important;
+    }
+}
+section#testimonials .is-positive {
+    color: #ffbf00;
+}
