@@ -155,6 +155,8 @@ function loadDataModel() {
     loadTestimonials();
     loadAppInfos();
     //hide_splash_screen();
+
+    (adsbygoogle = window.adsbygoogle || []).push({});
 }
 
 function loadAppLinks() {
