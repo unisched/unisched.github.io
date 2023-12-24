@@ -1,16 +1,13 @@
 /*
- ________  ___  ________  ___  __    ________  ________  ___  ________  ________  ___      ___ 
-|\   ____\|\  \|\   __  \|\  \|\  \ |\   __  \|\   ___ \|\  \|\   __  \|\   __  \|\  \    /  /|
-\ \  \___|\ \  \ \  \|\  \ \  \/  /|\ \  \|\  \ \  \_|\ \ \  \ \  \|\  \ \  \|\  \ \  \  /  / /
- \ \_____  \ \  \ \   _  _\ \   ___  \ \   __  \ \  \ \\ \ \  \ \   _  _\ \  \\\  \ \  \/  / / 
-  \|____|\  \ \  \ \  \\  \\ \  \\ \  \ \  \ \  \ \  \_\\ \ \  \ \  \\  \\ \  \\\  \ \    / /  
-    ____\_\  \ \__\ \__\\ _\\ \__\\ \__\ \__\ \__\ \_______\ \__\ \__\\ _\\ \_______\ \__/ /   
-   |\_________\|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|__|\|__|\|__|\|_______|\|__|/    
-   \|_________|
-*/
-
-/*@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');*/
+ *  ________  ___  ________  ___  __    ________  ________  ___  ________  ________  ___      ___ 
+ * |\   ____\|\  \|\   __  \|\  \|\  \ |\   __  \|\   ___ \|\  \|\   __  \|\   __  \|\  \    /  /|
+ * \ \  \___|\ \  \ \  \|\  \ \  \/  /|\ \  \|\  \ \  \_|\ \ \  \ \  \|\  \ \  \|\  \ \  \  /  / /
+ *  \ \_____  \ \  \ \   _  _\ \   ___  \ \   __  \ \  \ \\ \ \  \ \   _  _\ \  \\\  \ \  \/  / / 
+ *   \|____|\  \ \  \ \  \\  \\ \  \\ \  \ \  \ \  \ \  \_\\ \ \  \ \  \\  \\ \  \\\  \ \    / /  
+ *     ____\_\  \ \__\ \__\\ _\\ \__\\ \__\ \__\ \__\ \_______\ \__\ \__\\ _\\ \_______\ \__/ /   
+ *    |\_________\|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|__|\|__|\|__|\|_______|\|__|/    
+ *    \|_________|
+ */
 
 * {
     -webkit-user-drag: none;
@@ -46,7 +43,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 39;
     margin: 0;
     width: 100%;
     background-color: var(--main-bg-color);
@@ -167,4 +164,43 @@ section#partner-logos, .footer {
 }
 section#testimonials .is-positive {
     color: #ffbf00;
+}
+
+.modal .modal-card-head {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom: 0;
+    background-image: linear-gradient(180deg, rgba(204, 228, 247, 1) 11.2%, #ffffff 100.2%);
+}
+.modal .modal-card-body {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.modal .modal-card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.message, .message-body {
+    border-radius: 15px;
+}
+
+.splash_screen {
+    background-color: var(--main-bg-color);
+    position: fixed;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+}
+.splash_screen .splash_screen_box {
+    align-self: center;
+}
+.splash_screen img {
+    height: 35px;
+}
+.progress.is-primary:indeterminate {
+    background-image: linear-gradient(to right, var(--main-accent-color) 30%, #ededed 30%);
 }

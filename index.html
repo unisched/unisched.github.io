@@ -56,16 +56,22 @@
     </script>
     <!-- /Google Search -->
 
+    <!-- Scripts -->
+    <script defer src="https://unpkg.com/mustache@latest"></script>
+    <script defer src="assets/js/render.js"></script>
+    <script defer src="assets/js/site.js"></script>
+    <!-- /Scripts -->
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Ubuntu:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Ubuntu:wght@500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- /Fonts -->
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/site.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- /Stylesheets -->
 
     <!-- Google tag (gtag.js) -->
@@ -88,11 +94,11 @@
         <div class="container is-max-widescreen my-0">
             <div class="is-flex is-justify-content-space-between py-4">
                 <a class="is-align-self-center" href="">
-                    <img class="site-logo" src="assets/img/unisched_logo_default.svg" alt="UniSched">
+                    <img class="site-logo" src="assets/img/unisched_logo_default.svg" alt="UniSched"/>
                 </a>
                 <div>
                     <a class="button is-white hide-on-mobile" target="_blank" href="https://app.unisched.download/">Веб-версія</a>
-                    <a class="button is-dark" target="_blank" href="https://aka.sirkadirov.com/unisched/app">Завантажити</a>
+                    <button class="button is-dark modal-trigger" data-target="apps-modal">Завантажити</button>
                 </div>
             </div>
         </div>
@@ -105,44 +111,44 @@
             <h1 class="title is-1 has-text-centered m-0">Розклад занять у<br/>твоєму смартфоні</h1>
             <h3 class="title is-4 has-text-centered my-3">а також веб-сервіси і цікаві<br/>події твого закладу освіти</h3>
             <!-- App download buttons -->
-            <div class="unisched-download-buttons is-flex is-justify-content-center is-align-items-center my-3">
-                <!-- PWA version -->
-                <a class="no-decoration mx-2 hide-on-mobile" target="_blank" href="https://app.unisched.download/">
-                    <div class="box p-3 is-flex is-align-content-center m-0">
-                        <img src="assets/icons/pwa.svg" class="is-align-self-center mr-2" />
-                        <div class="is-align-self-center">
-                            <p>Запустити</p>
-                            <p class="has-text-weight-bold">веб-версію</p>
+            <div class="unisched-download-buttons is-flex is-justify-content-center is-align-items-center my-3" id="unisched_app_links">
+                <script id="unisched_app_links_template" type="x-tmpl-mustache">
+                    {{#app_links}}
+                    <a class="no-decoration mx-2 {{link_class}}" target="_blank" href="{{link}}">
+                        <div class="box p-3 is-flex is-align-content-center m-0">
+                            <img src="{{icon}}" class="is-align-self-center mr-2" />
+                            <div class="is-align-self-center">
+                                <p>{{title}}</p>
+                                <p class="has-text-weight-bold">{{subtitle}}</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-                <!-- /PWA version -->
-
-                <!-- Android version -->
-                <a class="no-decoration mx-2" target="_blank" href="https://play.google.com/store/apps/details?id=download.unisched.app">
-                    <div class="box p-3 is-flex is-align-content-center m-0">
-                        <img src="assets/icons/google_play.svg" class="is-align-self-center mr-2" />
-                        <div class="is-align-self-center">
-                            <p>Додаток на</p>
-                            <p class="has-text-weight-bold">Google Play</p>
-                        </div>
-                    </div>
-                </a>
-                <!-- /Android version -->
-
-                <!-- iPhone version -->
-                <a class="no-decoration mx-2" href="https://app.unisched.download/install/iphone">
-                    <div class="box p-3 is-flex is-align-content-center m-0">
-                        <img src="assets/icons/app_store.svg" class="is-align-self-center mr-2" />
-                        <div class="is-align-self-center">
-                            <p>Встановити</p>
-                            <p class="has-text-weight-bold">на iPhone</p>
-                        </div>
-                    </div>
-                </a>
-                <!-- /iPhone version -->
+                    </a>
+                    {{/app_links}}
+                </script>
             </div>
             <!-- /App download buttons -->
+
+            <!-- Additional buttons -->
+            <div class="my-3">
+                <!-- Other apps modal trigger -->
+                <button class="button is-ghost is-small px-2 py-0 modal-trigger" data-target="apps-modal" style="height: auto;">
+                    <span class="icon">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+                    </span>
+                    <span>Додатки для інших платформ</span>
+                </button>
+                <!-- /Other apps modal trigger -->
+
+                <!-- Changelog link -->
+                <a class="button is-ghost is-small px-2 py-0" style="height: auto;" target="_blank" href="https://changelog.unisched.download/">
+                    <span class="icon">
+                        <span class="material-symbols-outlined" style="font-size: 18px;">history</span>
+                    </span>
+                    <span>Історія змін</span>
+                </a>
+                <!-- /Changelog link -->
+            </div>
+            <!-- /Additional buttons -->
 
             <!-- App screenshots -->
             <div class="is-flex is-justify-content-center">
@@ -157,124 +163,29 @@
     <section class="section my-0" id="features">
         <div class="container is-max-desktop py-3">
             <h3 class="title is-3 has-text-centered">Чому UniSched?</h3>
-            <div class="columns is-multiline">
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">signal_wifi_off</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Доступ без Інтернету</h5>
-                        <p class="m-0">Використовуй усі функції додатка з поганим зв'язком або взагалі без доступу до мережі Інтернет</p>
+            <div class="columns is-multiline" id="unisched_features">
+                <script id="unisched_features_template" type="x-tmpl-mustache">
+                    {{#features}}
+                    <div class="column is-4 is-flex">
+                        <span class="icon mr-3">
+                            <span class="material-symbols-outlined">{{icon_name}}</span>
+                        </span>
+                        <div>
+                            <h5 class="title is-5 mb-2">{{title}}</h5>
+                            <p class="m-0">{{description}}</p>
+                        </div>
                     </div>
-                </div>
-                <!-- /Feature -->
+                    {{/features}}
 
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">videocam</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Заходь на онлайн-пари</h5>
-                        <p class="m-0">Переходь до онлайнових занять в Microsoft Teams, Google Meet та інших додатках прямо з розкладу</p>
+                    <!-- Action buttons -->
+                    <div class="column is-12 is-flex is-justify-content-center">
+                        <div class="buttons">
+                            <button class="button is-dark modal-trigger" data-target="apps-modal">Завантажити</button>
+                            <a class="button is-white" target="_blank" href="https://app.unisched.download/">Веб-версія</a>
+                        </div>
                     </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">stream_apps</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Всі сервіси вже в додатку</h5>
-                        <p class="m-0">Переходь до кабінету студента і веб-сервісів твого закладу освіти в один дотик — прямо з UniSched</p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">data_loss_prevention</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Зручний пошук розкладу</h5>
-                        <p class="m-0">Переглядай розклад занять своїх друзів і викладачів за допомогою зручного пошукового сервісу</p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">ios_share</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Ділися скрінами розкладу</h5>
-                        <p class="m-0">Скидай їх одногрупникам, які досі користуються Windows 2000, тож ніяк не встановлять собі UniSched</p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">thermostat</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Дивись прогноз погоди</h5>
-                        <p class="m-0">Зручний віджет з температурою на день і погодними умовами поруч з розкладом пар на день</p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">lock</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Повага до твоїх даних</h5>
-                        <p class="m-0">Ми з турботою ставимося до твоєї особистої інформації, тож ніяк не збираємо її, для будь-яких цілей</p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">featured_seasonal_and_gifts</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Повністю безкоштовний</h5>
-                        <p class="m-0">Усі функції додатка доступні для всіх користувачів без додаткової плати — завдяки вашим донатам
-                        </p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Feature -->
-                <div class="column is-4 is-flex">
-                    <span class="icon mr-3">
-                        <span class="material-symbols-outlined">visibility_off</span>
-                    </span>
-                    <div>
-                        <h5 class="title is-5 mb-2">Відсутність реклами</h5>
-                        <p class="m-0">В UniSched немає ані реклами, ані «спеціальних пропозицій», адже ми теж ним користуємося, щодня</p>
-                    </div>
-                </div>
-                <!-- /Feature -->
-
-                <!-- Action buttons -->
-                <div class="column is-12 is-flex is-justify-content-center">
-                    <div class="buttons">
-                        <a class="button is-dark" href="#">Завантажити</a>
-                        <a class="button is-white" target="_blank" href="https://app.unisched.download/">Веб-версія</a>
-                    </div>
-                </div>
-                <!-- /Action buttons -->
+                    <!-- /Action buttons -->
+                </script>
             </div>
         </div>
     </section>
@@ -284,28 +195,22 @@
     <section class="section my-0" id="partner-logos">
         <div class="container is-max-desktop py-3">
             <h3 class="title is-3 has-text-centered">Заклади освіти</h3>
-            <div class="columns is-mobile is-multiline is-justify-content-center">
-                <!-- Lviv University -->
-                <div class="column is-two-thirds-mobile is-one-third-tablet">
-                    <a href="https://lnu.edu.ua/" target="_blank">
-                        <img src="assets/logos/lviv_university.svg" style="display: block; width: 100%;" />
-                    </a>
-                </div>
-                <!-- /Lviv University -->
+            <div class="columns is-mobile is-multiline is-justify-content-center" id="unisched_partners">
+                <script id="unisched_partners_template" type="x-tmpl-mustache">
+                    {{#partners}}
+                    <div class="column is-two-thirds-mobile is-one-third-tablet">
+                        <a href="{{link}}" target="_blank">
+                            <img src="{{image}}" style="display: block; width: 100%;" />
+                        </a>
+                    </div>
+                    {{/partners}}
 
-                <!-- Add your institution -->
-                <div class="column is-two-thirds-mobile is-one-third-tablet">
-                    <a href="https://help.unisched.download/institutions/" target="_blank">
-                        <img src="assets/logos/add_university.svg" style="display: block; width: 100%;" />
-                    </a>
-                </div>
-                <!-- /Add your institution -->
-
-                <!-- Ads by Google -->
-                <div class="column is-10">
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5846758213675478" data-ad-slot="6497913984" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                </div>
-                <!-- /Ads by Google -->
+                    <!-- Ads by Google -->
+                    <div class="column is-10">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5846758213675478" data-ad-slot="6497913984" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    </div>
+                    <!-- /Ads by Google -->
+                </script>
             </div>
         </div>
     </section>
@@ -315,109 +220,35 @@
     <section class="section my-0" id="testimonials">
         <div class="container is-max-desktop py-3">
             <h3 class="title is-3 has-text-centered">Відгуки користувачів</h3>
-            <div class="columns is-multiline is-justify-content-center">
-                <!-- Testimonial -->
-                <div class="column is-4">
-                    <h6 class="title is-6 m-0">Відгук з Google Play</h6>
-                    <div class="is-flex is-justify-content-flex-start my-1">
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
+            <div class="columns is-multiline is-justify-content-center" id="unisched_testimonials">
+                <script id="unisched_testimonials_template" type="x-tmpl-mustache">
+                    {{#testimonials}}
+                    <div class="column is-4">
+                        <h6 class="title is-6 m-0">{{author}}</h6>
+                        <div class="is-flex is-justify-content-flex-start my-1">{{&rating_stars}}</div>
+                        <p>{{text}}</p>
                     </div>
-                    <p>Подобається додаток, бо мені не треба заходити в Telegram, аби дивитись свій розклад пар</p>
-                </div>
-                <!-- /Testimonial -->
+                    {{/testimonials}}
 
-                <!-- Testimonial -->
-                <div class="column is-4">
-                    <h6 class="title is-6 m-0">Викладач ФЕКТ</h6>
-                    <div class="is-flex is-justify-content-flex-start my-1">
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
+                    <!-- Action buttons -->
+                    <div class="column is-12 is-flex is-justify-content-center">
+                        <div class="buttons">
+                            <a class="button is-normal" target="_blank" href="https://play.google.com/store/apps/details?id=download.unisched.app">
+                                <span class="icon">
+                                    <span class="material-symbols-outlined">comment</span>
+                                </span>
+                                <span>Написати відгук на Google Play</span>
+                            </a>
+                        </div>
                     </div>
-                    <p>Користуюся як PWA на своєму айфоні, єдине що страшно дивитися на восьмі пари в розкладі. Можна їх прибрати?</p>
-                </div>
-                <!-- /Testimonial -->
+                    <!-- /Action buttons -->
 
-                <!-- Testimonial -->
-                <div class="column is-4">
-                    <h6 class="title is-6 m-0">З приватних повідомлень</h6>
-                    <div class="is-flex is-justify-content-flex-start my-1">
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
+                    <!-- Ads by Google -->
+                    <div class="column is-10">
+                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5846758213675478" data-ad-slot="6497913984" data-ad-format="auto" data-full-width-responsive="true"></ins>
                     </div>
-                    <p>Шкода, що дізнався про додаток вже під кінець семестру. Цікавий проект, бажаю успіхів з ним, вже завантажив</p>
-                </div>
-                <!-- /Testimonial -->
-
-                <!-- Testimonial -->
-                <div class="column is-4">
-                    <h6 class="title is-6 m-0">Студентка ФЕКТ</h6>
-                    <div class="is-flex is-justify-content-flex-start my-1">
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined">star</span>
-                    </div>
-                    <p>Дуже зручно! Додай ще оцінки з Деканату — тоді доставлю ще одну зірку і буду сидіти в ньому 24/7</p>
-                </div>
-                <!-- /Testimonial -->
-
-                <!-- Testimonial -->
-                <div class="column is-4">
-                    <h6 class="title is-6 m-0">Відгук з Google Play</h6>
-                    <div class="is-flex is-justify-content-flex-start my-1">
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                    </div>
-                    <p>Сподобалося те, що не треба заходити на сайт і шукати свій розклад, тепер я можу просто відкрити цей застосунок</p>
-                </div>
-                <!-- /Testimonial -->
-
-                <!-- Testimonial -->
-                <div class="column is-4">
-                    <h6 class="title is-6 m-0">Викладач ЛНУ</h6>
-                    <div class="is-flex is-justify-content-flex-start my-1">
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                        <span class="material-symbols-outlined is-positive">star</span>
-                    </div>
-                    <p>Дізнався про додаток ще в листопаді від студентів, з того часу було багато змін, які мені неабияк сподобалися</p>
-                </div>
-                <!-- /Testimonial -->
-
-                <!-- Action buttons -->
-                <div class="column is-12 is-flex is-justify-content-center">
-                    <div class="buttons">
-                        <a class="button is-normal" target="_blank" href="https://play.google.com/store/apps/details?id=download.unisched.app">
-                            <span class="icon">
-                                <span class="material-symbols-outlined">comment</span>
-                            </span>
-                            <span>Написати відгук на Google Play</span>
-                        </a>
-                    </div>
-                </div>
-                <!-- /Action buttons -->
-
-                <!-- Ads by Google -->
-                <div class="column is-10">
-                    <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5846758213675478" data-ad-slot="3503514164"></ins>
-                </div>
-                <!-- /Ads by Google -->
+                    <!-- /Ads by Google -->
+                </script>
             </div>
         </div>
     </section>
@@ -463,6 +294,55 @@
         </div>
     </footer>
     <!-- /Page footer -->
+
+    <!-- App infos modal -->
+    <div class="modal px-3" id="apps-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card rounded-lg">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Завантажити додаток</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <!-- Apps list -->
+                <div class="columns is-multiline is-mobile" id="unisched_app_infos">
+                    <script id="unisched_app_infos_template" type="x-tmpl-mustache">
+                        {{#app_infos}}
+                            <div class="column is-full-mobile is-half-desktop">
+                            <h5 class="title is-5 mb-2">{{title}}</h5>
+                            <a class="no-decoration" target="_blank" href="{{link}}">
+                                <img src="{{icon_button}}" style="height: 50px;"/>
+                            </a>
+                            <p>{{description}}</p>
+                        </div>
+                        {{/app_infos}}
+                    </script>
+                </div>
+                <!-- /Apps list -->
+
+                <!-- For other platforms -->
+                <article class="message">
+                    <div class="message-body p-3">
+                        <h6 class="title is-6 mb-2">Для інших платформ</h6>
+                        <p>
+                            Якщо вашої операційної системи немає у списку вище, ви можете завантажити UniSched
+                            для неї з веб-сайту <a href="https://app.unisched.download/" target="_blank">app.unisched.download</a>
+                            як PWA, або користуйтеся додатком зі зручного для вас вебпереглядача.
+                        </p>
+                    </div>
+                </article>
+                <!-- /For other platforms -->
+            </section>
+        </div>
+    </div>
+    <!-- /App infos modal -->
+
+    <div class="splash_screen is-hidden" id="splash_screen">
+        <div class="splash_screen_box">
+            <img class="mb-2" src="assets/img/unisched_logo_default.svg" alt="UniSched" />
+            <progress class="progress is-small is-primary" max="100">15%</progress>
+        </div>
+    </div>
 
     <!-- Initialize all ads on this page -->
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
