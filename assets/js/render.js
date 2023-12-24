@@ -36,13 +36,13 @@ const model = {
     'app_infos': [
         {
             'title': 'Додаток для Android',
-            'link': '',
+            'link': 'https://play.google.com/store/apps/details?id=download.unisched.app',
             'icon_button': 'assets/img/google_play.png',
             'description': 'Завантажити для мобільних пристроїв на базі Android 10 і вище з Google Play, а також веб-раузером Google Chrome'
         },
         {
             'title': 'Додаток для Windows',
-            'link': '',
+            'link': 'https://microsoft.com/store/productId/9PG4LX8SWXCM',
             'icon_button': 'assets/img/microsoft_store.svg',
             'description': 'Встановити на пристрій з ОС Windows 10 версії 19041 чи новіше, а також для усіх актуальних версій ОС Windows 11'
         },
