@@ -233,12 +233,12 @@
                     <!-- Action buttons -->
                     <div class="column is-12 is-flex is-justify-content-center">
                         <div class="buttons">
-                            <a class="button is-normal" target="_blank" href="https://play.google.com/store/apps/details?id=download.unisched.app">
+                            <button class="button is-normal modal-trigger" data-target="testimonial-modal">
                                 <span class="icon">
                                     <span class="material-symbols-outlined">comment</span>
                                 </span>
-                                <span>Написати відгук на Google Play</span>
-                            </a>
+                                <span>Залишити свій відгук</span>
+                            </button>
                         </div>
                     </div>
                     <!-- /Action buttons -->
@@ -334,6 +334,31 @@
         </div>
     </div>
     <!-- /App infos modal -->
+
+    <!-- App testimonial modal -->
+    <div class="modal px-3" id="testimonial-modal">
+        <div class="modal-background"></div>
+        <div class="modal-card rounded-lg">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Залишити відгук</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div id="tripetto-1jsoljp"></div>
+                <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@tripetto/runner-autoscroll"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@tripetto/studio"></script>
+                <script>
+                    TripettoStudio.form({
+                        runner: TripettoAutoscroll,
+                        token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiSVpLYVlVdXZLT1dlbmp6L1pBVEFnOHdPK3djUmFLMVF5NW9RQUZyZnhmdz0iLCJkZWZpbml0aW9uIjoiWEF4eWRNNnJ5d0lzb0srYWNiWHo1SmtOaVJVWitOTXMwNXZ5M2xUeU5kbz0iLCJ0eXBlIjoiY29sbGVjdCJ9.gNYOs7VhuCteJNpyIEOm-ZnNI3aa341ujbBkdKk8-Ys",
+                        element: "tripetto-1jsoljp"
+                    });
+                </script>
+            </section>
+        </div>
+    </div>
+    <!-- /App testimonial modal -->
 
     <div class="splash_screen is-hidden" id="splash_screen">
         <div class="splash_screen_box">
