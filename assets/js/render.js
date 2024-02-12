@@ -29,7 +29,7 @@ const model = {
             'title': 'Встановити',
             'subtitle': 'на iPhone',
             'icon': 'assets/icons/app_store.svg',
-            'link': 'https://app.unisched.download/install/iphone',
+            'link': 'https://app.unisched.download/',
             'link_class': ''
         },
     ],
@@ -38,7 +38,7 @@ const model = {
             'title': 'Додаток для Android',
             'link': 'https://play.google.com/store/apps/details?id=download.unisched.app',
             'icon_button': 'assets/img/google_play.png',
-            'description': 'Завантажити для мобільних пристроїв на базі Android 10 і вище з Google Play, а також веб-раузером Google Chrome'
+            'description': 'Завантажити для мобільних пристроїв на базі Android 8 і вище з Google Play'
         },
         {
             'title': 'Додаток для Windows',
