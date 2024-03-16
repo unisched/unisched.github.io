@@ -37,30 +37,6 @@ body {
     position: relative;
 }
 
-.site-navbar {
-    position: sticky;
-    position: -webkit-sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 39;
-    margin: 0;
-    width: 100%;
-    background-color: var(--main-bg-color);
-}
-
-.site-navbar .site-logo {
-    height: 30px;
-    display: block;
-}
-
-.site-navbar .button {
-    font-weight: bold;
-}
-.site-navbar .button:hover {
-    opacity: 0.9;
-}
-
 .button {
     border-radius: 15px !important;
     font-family: 'Ubuntu', sans-serif;
@@ -90,14 +66,6 @@ a:hover {
 a.no-decoration {
     text-decoration: none !important;
     opacity: 1 !important;
-}
-
-section#app-banner {
-    background-image: linear-gradient(0deg, rgba(204, 228, 247, 1) 11.2%, var(--main-bg-color) 100.2%);
-}
-.app-double-screen {
-    max-height: 350px;
-    display: block;
 }
 
 .title {

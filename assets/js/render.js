@@ -10,48 +10,11 @@
  */
 
 const model = {
-    'app_links': [
-        {
-            'title': 'Запустити',
-            'subtitle': 'веб-версію',
-            'icon': 'assets/icons/pwa.svg',
-            'link': 'https://app.unisched.download/',
-            'link_class': 'hide-on-mobile'
-        },
-        {
-            'title': 'Додаток на',
-            'subtitle': 'Google Play',
-            'icon': 'assets/icons/google_play.svg',
-            'link': 'https://play.google.com/store/apps/details?id=download.unisched.app',
-            'link_class': ''
-        },
-        {
-            'title': 'Встановити',
-            'subtitle': 'на iPhone',
-            'icon': 'assets/icons/app_store.svg',
-            'link': 'https://app.unisched.download/',
-            'link_class': ''
-        },
-    ],
-    'app_infos': [
-        {
-            'title': 'Додаток для Android',
-            'link': 'https://play.google.com/store/apps/details?id=download.unisched.app',
-            'icon_button': 'assets/img/google_play.png',
-            'description': 'Завантажити для мобільних пристроїв на базі Android 8 і вище з Google Play'
-        },
-        {
-            'title': 'Додаток для Windows',
-            'link': 'https://microsoft.com/store/productId/9PG4LX8SWXCM',
-            'icon_button': 'assets/img/microsoft_store.svg',
-            'description': 'Встановити на пристрій з ОС Windows 10 версії 19041 чи новіше, а також для усіх актуальних версій ОС Windows 11'
-        },
-    ],
     'features': [
         {
             'icon_name': 'signal_wifi_off',
             'title': 'Доступ без Інтернету',
-            'description': 'Використовуй усі функції додатка з поганим зв\'язком або взагалі без доступу до мережі Інтернет'
+            'description': 'Використовуй функції додатка з поганим зв\'язком або взагалі без доступу до мережі Інтернет'
         },
         {
             'icon_name': 'videocam',
@@ -97,11 +60,15 @@ const model = {
     'partners': [
         {
             'link': 'https://lnu.edu.ua/',
-            'image': 'assets/logos/lviv_university.svg'
+            'image': 'assets/institutions/lviv_university.png'
+        },
+        {
+            'link': 'https://polissiauniver.edu.ua/',
+            'image': 'assets/institutions/polissia_university.png'
         },
         {
             'link': 'https://help.unisched.download/institutions/',
-            'image': 'assets/logos/add_university.svg'
+            'image': 'assets/institutions/add_university.png'
         }
     ],
     'testimonials': [
@@ -112,18 +79,18 @@ const model = {
         },
         {
             'rating': 5,
-            'author': 'Викладач ФЕКТ',
+            'author': 'Особистий відгук',
             'text': 'Користуюся як PWA на своєму айфоні, єдине що страшно дивитися на восьмі пари в розкладі. Можна їх прибрати?'
         },
         {
             'rating': 5,
-            'author': 'З приватних повідомлень',
-            'text': 'Шкода, що дізнався про додаток вже під кінець семестру. Цікавий проект, бажаю успіхів з ним, вже завантажив'
+            'author': 'Відгук з Google Play',
+            'text': 'Дуже зручно, можна відразу знайти свій розклад, а не шукати його на сайті університету ще й в таблицях'
         },
         {
-            'rating': 4,
-            'author': 'Студентка ФЕКТ',
-            'text': 'Дуже зручно! Додай ще оцінки з Деканату — тоді доставлю ще одну зірку і буду сидіти в ньому 24/7'
+            'rating': 5,
+            'author': 'Відгук з Google Play',
+            'text': 'Не дочекаюся, коли вже у ньому з\'являться мої оцінки, щоб не заходити на сайт університету'
         },
         {
             'rating': 5,
@@ -132,8 +99,8 @@ const model = {
         },
         {
             'rating': 5,
-            'author': 'Викладач ЛНУ',
-            'text': 'Дізнався про додаток ще в листопаді від студентів, з того часу було багато змін, які мені неабияк сподобалися'
+            'author': 'Відгук з Google Play',
+            'text': 'Додаток дуже зручний і корисний. Шкода, що він з\'явився у Поліському лише на початку цього семестру.'
         }
     ],
     'rating_stars': function () {
@@ -149,20 +116,12 @@ const model = {
 loadDataModel();
 
 function loadDataModel() {
-    loadAppLinks();
     loadFeatures();
     loadPartners();
     loadTestimonials();
-    loadAppInfos();
-    //hide_splash_screen();
+    hide_splash_screen();
 
     (adsbygoogle = window.adsbygoogle || []).push({});
-}
-
-function loadAppLinks() {
-    const template = document.getElementById('unisched_app_links_template').innerHTML;
-    const rendered = Mustache.render(template, model);
-    document.getElementById('unisched_app_links').innerHTML = rendered;
 }
 
 function loadFeatures() {
@@ -181,12 +140,6 @@ function loadTestimonials() {
     const template = document.getElementById('unisched_testimonials_template').innerHTML;
     const rendered = Mustache.render(template, model);
     document.getElementById('unisched_testimonials').innerHTML = rendered;
-}
-
-function loadAppInfos() {
-    const template = document.getElementById('unisched_app_infos_template').innerHTML;
-    const rendered = Mustache.render(template, model);
-    document.getElementById('unisched_app_infos').innerHTML = rendered;
 }
 
 function hide_splash_screen() {
