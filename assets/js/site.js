@@ -1,4 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*
+ *  ________  ___  ________  ___  __    ________  ________  ___  ________  ________  ___      ___ 
+ * |\   ____\|\  \|\   __  \|\  \|\  \ |\   __  \|\   ___ \|\  \|\   __  \|\   __  \|\  \    /  /|
+ * \ \  \___|\ \  \ \  \|\  \ \  \/  /|\ \  \|\  \ \  \_|\ \ \  \ \  \|\  \ \  \|\  \ \  \  /  / /
+ *  \ \_____  \ \  \ \   _  _\ \   ___  \ \   __  \ \  \ \\ \ \  \ \   _  _\ \  \\\  \ \  \/  / / 
+ *   \|____|\  \ \  \ \  \\  \\ \  \\ \  \ \  \ \  \ \  \_\\ \ \  \ \  \\  \\ \  \\\  \ \    / /  
+ *     ____\_\  \ \__\ \__\\ _\\ \__\\ \__\ \__\ \__\ \_______\ \__\ \__\\ _\\ \_______\ \__/ /   
+ *    |\_________\|__|\|__|\|__|\|__| \|__|\|__|\|__|\|_______|\|__|\|__|\|__|\|_______|\|__|/    
+ *    \|_________|
+ */
+
+document.addEventListener('DOMContentLoaded', async () => {
+    initializePlatformDependantContent();
+
+    function initializePlatformDependantContent() {
+        const userAgentParser = new UAParser();
+        const userAgentOS = userAgentParser.getOS();
+
+        // Android
+        if (userAgentOS.name.toLowerCase() === 'android') {
+            (document.querySelectorAll('.for-ios') || []).forEach((e) => e.style.display = 'none');
+            (document.querySelectorAll('.mobile-qr') || []).forEach((e) => e.style.setProperty('display', 'none', 'important'));
+            return;
+        }
+
+        // iPhone, iPad, iPod, MacOS
+        if (userAgentOS.name.toLowerCase() === 'ios') {
+            (document.querySelectorAll('.for-android') || []).forEach((e) => e.style.display = 'none');
+            (document.querySelectorAll('.mobile-qr') || []).forEach((e) => e.style.setProperty('display', 'none', 'important'));
+            return;
+        }
+    }
+
     function openModal($el) { $el.classList.add('is-active'); }
     function closeModal($el) { $el.classList.remove('is-active'); }
 
@@ -15,28 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
         $close.addEventListener('click', () => {
             closeModal($target);
         });
-    });
-
-    function initiateAppDownload () {
-        const userAgent = navigator.userAgent.toLowerCase();
-
-        // On Android-powered devices, redirect to the Play Store
-        if (userAgent.indexOf("android") > -1) {
-            window.location = 'https://play.google.com/store/apps/details?id=download.unisched.app';
-            return;
-        }
-
-        // On Windows-powered devices, redirect to the Microsoft Store
-        if (userAgent.indexOf("windows") > -1) {
-            window.location = 'https://apps.microsoft.com/detail/UniSched/9pg4lx8swxcm?launch=true&mode=mini';
-            return;
-        }
-
-        // On other devices, redirect to the web app
-        window.location = 'https://app.unisched.download/';
-    }
-
-    (document.querySelectorAll('.download-button') || []).forEach(($button) => {
-        $button.addEventListener('click', initiateAppDownload);
     });
 });

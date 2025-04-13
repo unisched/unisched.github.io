@@ -10,11 +10,11 @@
 -->
 
 <!DOCTYPE html>
-<html prefix="og: https://ogp.me/ns#">
+<html lang="uk" data-theme="light" prefix="og: https://ogp.me/ns#">
 <head>
     <!-- Title and description -->
-    <title>UniSched — твій університет, вже у смартфоні 📲</title>
-    <meta name="description" content="Де б ти не був, розклад занять завжди буде поруч з тобою ✨. Завантажуй UniSched вже сьогодні!">
+    <title>Unisched — твій університет, вже у смартфоні 📲</title>
+    <meta name="description" content="Де б ти не був, розклад занять і ресурси Університету завжди будуть поруч з тобою ✨. Завантажуй Unisched вже сьогодні!">
     <!-- /Title and description -->
 
     <!-- Charset and viewport -->
@@ -23,8 +23,8 @@
     <!-- /Charset and viewport -->
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="UniSched — твій університет, вже у смартфоні" />
-    <meta property="og:description" content="Де б ти не був, розклад занять завжди буде поруч з тобою. Завантажуй UniSched вже сьогодні!" />
+    <meta property="og:title" content="Unisched — твій університет, вже у смартфоні" />
+    <meta property="og:description" content="Де б ти не був, розклад занять і ресурси Університету завжди будуть поруч з тобою ✨. Завантажуй Unisched вже сьогодні!" />
     <meta property="og:locale" content="uk_UA" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://unisched.download/" />
@@ -37,28 +37,8 @@
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
     <!-- /Website icons -->
 
-    <!-- Google Search -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": ["SoftwareApplication", "MobileApplication", "WebApplication"],
-            "name": "UniSched",
-            "operatingSystem": "ANDROID",
-            "applicationCategory": "EducationalApplication",
-            "offers": {
-                "@type": "Offer",
-                "price": "0"
-            },
-            "downloadUrl": "https://play.google.com/store/apps/details?id=download.unisched.app",
-            "releaseNotes": "https://changelog.unisched.download/",
-            "license": "https://help.unisched.download/legal/terms/"
-        }
-    </script>
-    <!-- /Google Search -->
-
     <!-- Scripts -->
-    <script defer src="https://unpkg.com/mustache@latest"></script>
-    <script defer src="assets/js/render.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/ua-parser-js@2.0.3/dist/ua-parser.min.js"></script>
     <script defer src="assets/js/site.js"></script>
     <!-- /Scripts -->
 
@@ -70,7 +50,7 @@
     <!-- /Fonts -->
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="assets/site.css">
     <!-- /Stylesheets -->
 
@@ -83,180 +63,57 @@
         gtag('config', 'G-QX4V6SXN11');
     </script>
     <!-- /Google tag (gtag.js) -->
-
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5846758213675478" crossorigin="anonymous"></script>
-    <!-- /Google AdSense -->
 </head>
-<body>
+<body class="is-flex is-justify-content-center is-align-items-center">
     <!-- Application banner -->
-    <section class="section my-0 pb-6" id="app-banner">
-        <div class="container is-max-desktop has-text-centered mt-6 pb-6">
-            <img src="assets/img/icon-512.png" alt="UniSched" style="width: 150px;" />
-            <h1 class="title is-1 has-text-centered mx-0 my-5">Твій Університет,<br/>вже у смартфоні</h1>
+    <div class="app-banner container has-text-centered mt-6 mb-6">
+        <!-- App logo -->
+        <a class="app-logo my-0" href="https://unisched.app/" target="_blank" rel="noopener noreferrer">
+            <img src="assets/img/unisched-logo-dark-2color.svg" alt="Unisched" />
+        </a>
+        <!-- /App logo -->
+        <!-- App description -->
+        <h3 class="subtitle is-4 has-text-centered mx-0 mt-3 mb-0">
+            Цифровий розклад занять<br/>та миттєвий доступ до всіх<br/>ресурсів твого Університету
+        </h3>
+        <!-- /App description -->
+        <div class="is-inline-flex is-justify-content-center is-align-items-start my-4">
+            <!-- QR-code shown on desktops -->
+            <div class="mobile-qr is-flex is-justify-content-center is-align-items-center mr-3">
+                <img src="assets/img/qr-code.svg" alt="QR Code" />
+            </div>
+            <!-- /QR-code shown on desktops -->
             <!-- App download buttons -->
-            <div class="unisched-download-buttons is-flex is-justify-content-center is-align-items-center" id="unisched_app_links">
-                <button class="button is-medium is-rounded is-dark download-button">
-                    <span class="icon">
-                        <span class="material-symbols-outlined">download</span>
-                    </span>
-                    <span>Завантажити</span>
-                </button>
+            <div class="download-buttons is-flex is-flex-direction-column is-justify-content-start is-align-items-start is-flex-shrink-1">
+                <a class="download-link for-android" href="https://e.surl.li/pcbsol" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/google_play.png" alt="Google Play" />
+                </a>
+                <a class="download-link for-ios" href="https://e.surl.li/aamfzv" target="_blank" rel="noopener noreferrer">
+                    <img src="assets/img/app_store.png" alt="App Store" />
+                </a>
+                <small class="mobile-qr has-text-left">Або зіскануйте QR-код<br/>зі свого смартфона</small>
             </div>
             <!-- /App download buttons -->
-
-            <!-- Additional buttons -->
-            <div class="mt-5" style="line-height: 1;">
-                <!-- Telegram link -->
-                <a class="button is-ghost px-2 py-0" style="height: auto;" target="_blank" href="https://t.me/unisched">
-                    <span class="icon is-small mr-2"><img src="assets/icons/telegram-logo.svg" /></span>
-                    <span>Telegram-канал</span>
-                </a>
-                <!-- /Telegram link -->
-
-                <!-- Viber link -->
-                <a class="button is-ghost px-2 py-0" style="height: auto;" target="_blank"
-                   href="https://invite.viber.com/?g2=AQAnUkwagTWhwVLZy6Pxc7pj7GDAs5afiWfXJ0W%2BIayDn63XvdksNcc32tHY%2BTh6">
-                    <span class="icon is-small mr-2"><img src="assets/icons/viber-logo.svg" /></span>
-                    <span>Viber-спільнота</span>
-                </a>
-                <!-- /Viber link -->
-
-                <div class="mt-2">
-                    <!-- Donation link -->
-                    <a class="button is-ghost px-2 py-0" style="height: auto;" target="_blank"
-                        href="https://aka.sirkadirov.com/unisched/donate">
-                        <span class="icon is-small mr-1"><span style="font-size: 18px;">💖</span></span>
-                        <span style="color: #ec0000;">Підтримати застосунок донатом</span>
-                    </a>
-                    <!-- /Donation link -->
-                </div>
-            </div>
-            <!-- /Additional buttons -->
         </div>
-    </section>
+        <!-- Full website link -->
+        <div class="is-flex is-justify-content-center">
+            <a class="button is-small" href="https://unisched.app/" target="_blank" rel="noopener noreferrer">
+                <span class="icon is-small">
+                    <i class="material-symbols-outlined">arrow_forward</i>
+                </span>
+                <span>Перейти на сайт застосунку</span>
+            </a>
+        </div>
+        <!-- /Full website link -->
+    </div>
     <!-- /Application banner -->
 
-    <!-- Features -->
-    <section class="section my-0 pt-0" id="features">
-        <div class="container is-max-desktop pb-6">
-            <div class="columns is-multiline is-justify-content-center" id="unisched_features">
-                <script id="unisched_features_template" type="x-tmpl-mustache">
-                    {{#features}}
-                    <div class="column is-4 is-flex">
-                        <span class="icon mr-3">
-                            <span class="material-symbols-outlined">{{icon_name}}</span>
-                        </span>
-                        <div>
-                            <h5 class="title is-5 mb-2">{{title}}</h5>
-                            <p class="m-0">{{description}}</p>
-                        </div>
-                    </div>
-                    {{/features}}
-
-                    <!-- Ads by Google -->
-                    <div class="column is-10">
-                        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5846758213675478" data-ad-slot="6497913984" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    </div>
-                    <!-- /Ads by Google -->
-                </script>
-            </div>
-        </div>
-    </section>
-    <!-- /Features -->
-
-    <!-- Partners -->
-    <section class="section my-0" id="partner-logos">
-        <div class="container is-max-desktop py-3">
-            <div class="columns is-mobile is-multiline is-justify-content-center" id="unisched_partners">
-                <script id="unisched_partners_template" type="x-tmpl-mustache">
-                    {{#partners}}
-                    <div class="column is-two-thirds-mobile is-one-third-tablet">
-                        <a href="{{link}}" target="_blank">
-                            <img src="{{image}}" style="display: block; width: 100%;" />
-                        </a>
-                    </div>
-                    {{/partners}}
-                </script>
-            </div>
-        </div>
-    </section>
-    <!-- /Partners -->
-
-    <!-- Testimonials -->
-    <section class="section my-0" id="testimonials">
-        <div class="container is-max-desktop py-3">
-            <div class="columns is-multiline is-justify-content-center" id="unisched_testimonials">
-                <script id="unisched_testimonials_template" type="x-tmpl-mustache">
-                    {{#testimonials}}
-                    <div class="column is-4">
-                        <h6 class="title is-6 m-0">{{author}}</h6>
-                        <div class="is-flex is-justify-content-flex-start my-1">{{&rating_stars}}</div>
-                        <p>{{text}}</p>
-                    </div>
-                    {{/testimonials}}
-                </script>
-            </div>
-        </div>
-    </section>
-    <!-- /Testimonials -->
-
-    <!-- Page footer -->
-    <footer class="footer py-5">
-        <div class="content has-text-centered">
-            <!-- Footer buttons -->
-            <div class="buttons is-justify-content-center mb-1">
-                <a class="button is-normal" href="https://help.unisched.download/legal/" target="_blank">
-                    <span class="icon">
-                        <span class="material-symbols-outlined">info</span>
-                    </span>
-                    <span>Юр. інформація</span>
-                </a>
-                <a class="button is-normal" href="https://help.unisched.download/" target="_blank">
-                    <span class="icon">
-                        <span class="material-symbols-outlined">help</span>
-                    </span>
-                    <span>Допомога</span>
-                </a>
-            </div>
-            <!-- /Footer buttons -->
-
-            <!-- Social channels -->
-            <div class="buttons is-justify-content-center mt-3">
-                <!-- Telegram link -->
-                <a class="button is-ghost px-2 py-0" style="height: auto;" target="_blank" href="https://t.me/unisched">
-                    <span class="icon is-small mr-2"><img src="assets/icons/telegram-logo.svg" /></span>
-                    <span>Telegram-канал</span>
-                </a>
-                <!-- /Telegram link -->
-                
-                <!-- Viber link -->
-                <a class="button is-ghost px-2 py-0" style="height: auto;" target="_blank"
-                    href="https://invite.viber.com/?g2=AQAnUkwagTWhwVLZy6Pxc7pj7GDAs5afiWfXJ0W%2BIayDn63XvdksNcc32tHY%2BTh6">
-                    <span class="icon is-small mr-2"><img src="assets/icons/viber-logo.svg" /></span>
-                    <span>Viber-спільнота</span>
-                </a>
-                <!-- /Viber link -->
-            </div>
-            <!-- /Social channels -->
-
-            <!-- Copyright -->
-            <p>
-                &copy; 2023 - 2024,
-                <a href="https://sirkadirov.com/" target="_blank">ФОП Кадіров Юрій Вікторович</a> та
-                <a href="https://supremeorder.rocks/" target="_blank">Громадська організація «Верховний Порядок»</a>.
-                Усі права захищено.
-            </p>
-            <!-- /Copyright -->
-        </div>
-    </footer>
-    <!-- /Page footer -->
-
-    <div class="splash_screen" id="splash_screen">
-        <div class="splash_screen_box">
-            <img class="mb-2" src="assets/img/unisched_logo_default.svg" alt="UniSched" />
-            <progress class="progress is-small is-primary" max="100">15%</progress>
-        </div>
+    <!-- Screenshot -->
+    <div class="screenshot">
+        <a href="https://unisched.app/" target="_blank" rel="noopener noreferrer" tabindex="-1">
+            <img src="assets/img/screenshot.png" alt="Скріншот застосунку, який визирає з-за екрана" />
+        </a>
     </div>
+    <!-- /Screenshot -->
 </body>
 </html>
